@@ -1,4 +1,6 @@
-/* Общие стили */
+/* ==================== ОБНОВЛЕННЫЙ И ДОПОЛНЕННЫЙ CSS ==================== */
+
+/* 1. ОСНОВНЫЕ СТИЛИ (уже были, оставляем) */
 * {
   margin: 0;
   padding: 0;
@@ -6,129 +8,911 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   line-height: 1.6;
-  background-color: #fff;
   color: #333;
+  background-color: #fff;
 }
 
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* Шапка */
-.header {
-  background-color: #f8f8f8;
-  padding: 20px 0;
-  border-bottom: 1px solid #ddd;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
   color: #222;
 }
 
-.nav a {
-  margin-left: 20px;
+.section-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background-color: #000;
+  color: #fff;
   text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn--primary {
+  background-color: #0088cc;
+}
+
+.btn--primary:hover {
+  background-color: #0077b3;
+}
+
+.btn--small {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
+
+/* 2. ШАПКА И НАВИГАЦИЯ (обновлено для точного соответствия) */
+.header {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.header--scrolled {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header--hidden {
+  transform: translateY(-100%);
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #222;
+  text-decoration: none;
+}
+
+.desktop-nav {
+  display: flex;
+}
+
+.nav__list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav__link {
   color: #333;
+  text-decoration: none;
+  font-size: 1rem;
   font-weight: 500;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav__link:hover,
+.nav__link.active {
+  color: #0088cc;
+}
+
+.nav__link--phone {
+  background-color: #f5f5f5;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.nav__link--tg {
+  background-color: #0088cc;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+}
+
+.nav__link--wa {
+  background-color: #25D366;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
 }
 
 .burger {
   display: none;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-/* Мобильное меню */
-.mobile-nav {
-  display: none;
   flex-direction: column;
-  background-color: #fff;
-  border-top: 1px solid #ddd;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-.mobile-nav a {
-  padding: 15px;
+.burger span {
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+/* 3. МОБИЛЬНОЕ МЕНЮ (добавлены детали из оригинала) */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+  transition: right 0.3s ease;
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
+.mobile-menu__content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 100%;
+  background-color: #fff;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.mobile-menu__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
   border-bottom: 1px solid #eee;
-  text-decoration: none;
+}
+
+.mobile-menu__close {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
   color: #333;
 }
 
-/* Герой */
-.hero {
-  background: url('https://via.placeholder.com/1600x600?text=Abaya+Store') center/cover no-repeat;
-  color: #fff;
-  padding: 100px 0;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 20px;
+.mobile-nav__list {
+  list-style: none;
   margin-bottom: 30px;
 }
 
-.btn {
-  background-color: #000;
-  color: #fff;
-  padding: 15px 30px;
+.mobile-nav__item {
+  margin-bottom: 10px;
+}
+
+.mobile-nav__link {
+  color: #333;
   text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: block;
+  padding: 12px 15px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
 }
 
-/* Секции */
-.section {
-  padding: 60px 0;
+.mobile-nav__link:hover,
+.mobile-nav__link.active {
+  background-color: #f5f5f5;
+  color: #0088cc;
 }
 
-.section h2 {
-  margin-bottom: 20px;
-  font-size: 32px;
+.mobile-menu__social {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
 }
 
-/* Подвал */
-.footer {
-  background-color: #f8f8f8;
-  padding: 20px 0;
+.mobile-menu__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+  transition: opacity 0.3s;
+}
+
+.mobile-menu__social-link:hover {
+  opacity: 0.9;
+}
+
+.mobile-menu__social-link:nth-child(1) {
+  background-color: #0088cc;
+}
+
+.mobile-menu__social-link:nth-child(2) {
+  background-color: #25D366;
+}
+
+/* 4. ГЛАВНЫЙ ЭКРАН / HERO (точная копия оригинала) */
+.hero {
+  position: relative;
+  padding: 200px 0 150px;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+    url('https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center 30%;
+  color: white;
   text-align: center;
-  font-size: 14px;
-  color: #666;
+  margin-top: 80px;
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-  .nav {
+.hero__title {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.95;
+  font-weight: 300;
+}
+
+.hero__highlight {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 25px 0;
+  color: #f8f8f8;
+}
+
+.hero .btn {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  padding: 16px 40px;
+}
+
+.hero__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, #fff);
+}
+
+/* 5. СЕКЦИЯ "О НАС / БРЕНДЫ" (новая, как на сайте) */
+.about-brands {
+  padding: 100px 0 80px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.brand-intro {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 900px;
+  margin: 0 auto 50px;
+  line-height: 1.8;
+}
+
+.brand-intro strong {
+  color: #222;
+  font-weight: 600;
+}
+
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.brand-card {
+  background: #fcfcfc;
+  padding: 50px 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.brand-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border-color: #e0e0e0;
+}
+
+.brand-card__logo {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.brand-card__desc {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* 6. СЕКЦИЯ "ПРЕМИАЛЬНЫЕ ТКАНИ" (обновлено) */
+.fabrics {
+  padding: 80px 0;
+  background-color: #f9f9f9;
+}
+
+.fabrics-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+  margin-bottom: 50px;
+  font-style: italic;
+}
+
+.fabrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.fabric-item {
+  background-color: #fff;
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.fabric-item:hover {
+  background-color: #0088cc;
+  color: white;
+  border-color: #0088cc;
+  transform: scale(1.05);
+}
+
+/* 7. СЕКЦИЯ "ОНЛАЙН ШОУРУМ" (новая секция с оригинала) */
+.showroom {
+  padding: 100px 0;
+  background-color: #fff;
+  text-align: center;
+}
+
+.showroom-subtitle {
+  font-size: 1.3rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  line-height: 1.7;
+}
+
+.video-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.video-placeholder {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  height: 250px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 20px rgba(106, 17, 203, 0.2);
+}
+
+.video-placeholder:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(106, 17, 203, 0.3);
+}
+
+.video-placeholder i {
+  font-size: 4rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+/* 8. СЕКЦИЯ "ОТЗЫВЫ" (новая секция с оригинала) */
+.testimonials {
+  padding: 100px 0;
+  background-color: #f9f9f9;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.testimonial-card:before {
+  content: "“";
+  font-size: 6rem;
+  color: #0088cc;
+  position: absolute;
+  top: -30px;
+  left: 30px;
+  font-family: serif;
+  opacity: 0.2;
+}
+
+.testimonial-text {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  color: #222;
+  font-size: 1.1rem;
+}
+
+/* 9. СЕКЦИЯ "КАК СДЕЛАТЬ ЗАКАЗ" (новая, важная секция) */
+.how-to-order {
+  padding: 100px 0;
+  background-color: #fff;
+}
+
+.order-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.order-step {
+  text-align: center;
+  padding: 40px 25px;
+  background: #fcfcfc;
+  border-radius: 12px;
+  border-top: 5px solid #0088cc;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s;
+}
+
+.order-step:hover {
+  transform: translateY(-10px);
+}
+
+.order-step__icon {
+  font-size: 3.5rem;
+  color: #0088cc;
+  margin-bottom: 25px;
+}
+
+.order-step__title {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.order-step__desc {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.order-step__btn {
+  margin-top: 10px;
+}
+
+/* 10. СЕКЦИЯ "ВАРИАНТЫ ДОСТАВКИ" (новая) */
+.delivery-options {
+  padding: 100px 0;
+  background-color: #f9f9f9;
+}
+
+.delivery-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.delivery-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.delivery-card:hover {
+  border-color: #0088cc;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.delivery-card__title {
+  font-size: 1.8rem;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.delivery-card__desc {
+  color: #666;
+  line-height: 1.7;
+}
+
+.delivery-card__time {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 20px;
+  background-color: #f0f8ff;
+  color: #0088cc;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* 11. СЕКЦИЯ "ЧТО ТАКОЕ АБАЙЯ?" (информационная секция с оригинала) */
+.about-abaya {
+  padding: 100px 0;
+  background-color: #fff;
+  text-align: center;
+}
+
+.abaya-definition {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+  background: #fcfcfc;
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  line-height: 1.9;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.abaya-definition p {
+  margin-bottom: 25px;
+}
+
+.abaya-definition strong {
+  color: #222;
+}
+
+/* 12. ФУТЕР (обновлен, как на оригинале) */
+.footer {
+  background-color: #222;
+  color: white;
+  padding: 70px 0 30px;
+  text-align: center;
+}
+
+.footer__logo {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+.footer__text {
+  max-width: 600px;
+  margin: 0 auto 25px;
+  color: #aaa;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.footer__contacts {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.footer__contact-item {
+  color: #ccc;
+}
+
+.footer__contact-item a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer__contact-item a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer__copyright {
+  color: #777;
+  font-size: 0.9rem;
+  margin-top: 40px;
+  padding-top: 25px;
+  border-top: 1px solid #444;
+}
+
+.cookie-notice {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  color: #eee;
+  padding: 20px;
+  text-align: center;
+  z-index: 9999;
+  display: none;
+}
+
+.cookie-notice__btn {
+  background: #0088cc;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 4px;
+  margin-left: 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ==================== АДАПТИВНОСТЬ ==================== */
+
+/* Планшетная версия (768px - 1024px) */
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .hero__title {
+    font-size: 2.8rem;
+  }
+
+  .hero {
+    padding: 180px 0 130px;
+  }
+
+  .brands-grid,
+  .fabrics-grid,
+  .order-steps,
+  .delivery-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav__link--phone,
+  .nav__link--tg span,
+  .nav__link--wa span {
     display: none;
   }
 
+  .nav__link--tg,
+  .nav__link--wa {
+    padding: 10px;
+    font-size: 1.3rem;
+  }
+
+  .video-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Мобильная версия (до 768px) */
+@media (max-width: 768px) {
+  .header__inner {
+    padding: 12px 0;
+  }
+
   .burger {
-    display: block;
+    display: flex;
   }
 
-  .hero h1 {
-    font-size: 32px;
+  .desktop-nav {
+    display: none;
   }
 
-  .hero p {
-    font-size: 18px;
+  .section-title {
+    font-size: 1.9rem;
   }
+
+  .section-subtitle,
+  .brand-intro,
+  .showroom-subtitle {
+    font-size: 1.05rem;
+    padding: 0 10px;
+  }
+
+  .hero {
+    padding: 150px 0 100px;
+    margin-top: 70px;
+    background-position: center 40%;
+  }
+
+  .hero__title {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
+
+  .hero__subtitle {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+
+  .about-brands,
+  .fabrics,
+  .showroom,
+  .testimonials,
+  .how-to-order,
+  .delivery-options,
+  .about-abaya {
+    padding: 70px 0;
+  }
+
+  .brands-grid,
+  .fabrics-grid,
+  .order-steps,
+  .delivery-cards,
+  .video-gallery {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .brand-card {
+    padding: 40px 25px;
+  }
+
+  .fabric-item {
+    padding: 25px 15px;
+  }
+
+  .order-step {
+    padding: 35px 20px;
+  }
+
+  .delivery-card {
+    padding: 35px 25px;
+  }
+
+  .abaya-definition {
+    padding: 35px 25px;
+    font-size: 1rem;
+  }
+
+  .mobile-menu__content {
+    width: 85%;
+    max-width: 300px;
+    padding: 25px;
+  }
+
+  .footer__contacts {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* Очень маленькие экраны (до 480px) */
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: 1.9rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero__highlight {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+  }
+
+  .testimonial-card {
+    padding: 30px 20px;
+  }
+
+  .testimonial-text {
+    font-size: 1.1rem;
+  }
+
+  .footer {
+    padding: 50px 0 25px;
+  }
+}
+
+/* Анимации для плавного появления (финальный штрих) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.brand-card,
+.fabric-item,
+.product-card,
+.delivery-item,
+.order-step,
+.delivery-card,
+.video-placeholder {
+  animation: fadeInUp 0.6s ease forwards;
 }
